@@ -1,0 +1,72 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+    <title>My Test Website</title> 
+    <style> 
+        body { font-family: Arial, sans-serif; margin: 40px; } 
+        .container { max-width: 600px; margin: 0 auto; } 
+        input, button { margin: 10px 0; padding: 10px; width: 200px; } 
+        button { background-color: #4CAF50; color: white; border: none; cursor: pointer; } 
+        button:hover { background-color: #45a049; } 
+        .result { margin-top: 20px; padding: 10px; background-color: #dff0d8;  
+                 border: 1px solid #d6e9c6; display: none; } 
+    </style> 
+</head> 
+<body> 
+    <div class="container"> 
+        <h1 id="main-title">Welcome to My Test Website</h1> 
+        <form id="contact-form"> 
+            <div> 
+                <label for="name">Name:</label><br> 
+                <input type="text" id="name" name="name" placeholder="Your Name" required> 
+            </div> 
+            <div> 
+                <label for="email">Email:</label><br> 
+                <input type="email" id="email" name="email" placeholder="Your Email" required> 
+            </div> 
+            <div> 
+                <label for="message">Message:</label><br> 
+                <textarea id="message" name="message" rows="4" cols="30"  
+                         placeholder="Your message here..."></textarea> 
+            </div> 
+            <div> 
+                <button type="submit" id="submit-btn">Submit</button> 
+            </div> 
+        </form> 
+        <p class="description">This is a test website for Selenium automation with Java.</p> 
+        <div id="result" class="result"> 
+            <p><strong>Form submitted successfully!</strong></p> 
+            <p id="submitted-data">Your data has been received.</p> 
+        </div> 
+        <!-- Sample list for testing --> 
+        <ul id="sample-list"> 
+            <li>Item 1</li> 
+            <li>Item 2</li> 
+            <li>Item 3</li> 
+        </ul> 
+        <!-- Sample buttons for testing --> 
+        <div style="margin-top: 20px;"> 
+            <button id="test-button-1" onclick="alert('Button 1 clicked!')">Test Button 1</button> 
+            <button id="test-button-2" onclick="changeColor()">Change Background Color</button> 
+        </div> 
+    </div>
+    <script> 
+        document.getElementById('contact-form').addEventListener('submit', function(e) { 
+            e.preventDefault(); 
+            // Get form data 
+            const name = document.getElementById('name').value; 
+            const email = document.getElementById('email').value; 
+            const message = document.getElementById('message').value; 
+            // Show result 
+            document.getElementById('result').style.display = 'block'; 
+            document.getElementById('submitted-data').innerHTML =  
+                `Name: ${name}<br>Email: ${email}<br>Message: ${message}`; 
+        }); 
+        function changeColor() { 
+            const colors = ['#ffebee', '#e8f5e8', '#fff3e0', '#f3e5f5']; 
+            const randomColor = colors[Math.floor(Math.random() * colors.length)]; 
+            document.body.style.backgroundColor = randomColor; 
+        } 
+    </script> 
+</body> 
+</html> 
